@@ -8,7 +8,7 @@ abstract class StatelessView<ControllerInterface extends Controller>
 
   const StatelessView({Key? key}) : super(key: key);
 
-  ControllerInterface get controller => GetInstance().find(tag: tag)!;
+  ControllerInterface get controller => Get.find<ControllerInterface>(tag: tag);
 }
 
 abstract class StatefulView<ControllerInterface extends Controller,
