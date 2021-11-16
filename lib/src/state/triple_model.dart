@@ -8,7 +8,7 @@ class TripleState<Error extends Object, State> {
 
   const TripleState(
     this.value, {
-    this.status = TripleStatus.done,
+    this.status = TripleStatus.waiting,
     this.error,
   });
 
@@ -43,3 +43,20 @@ class TripleState<Error extends Object, State> {
 }
 
 enum TripleStatus { done, error, waiting }
+
+extension TripleStatusExtension on TripleStatus {
+  TResult map<TResult>({
+    required TResult Function() done,
+    required TResult Function() error,
+    required TResult Function() waiting,
+  }) {
+    switch (this) {
+      case TripleStatus.done:
+        return done();
+      case TripleStatus.error:
+        return error();
+      case TripleStatus.waiting:
+        return waiting();
+    }
+  }
+}

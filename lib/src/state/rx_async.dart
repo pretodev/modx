@@ -86,7 +86,7 @@ class RxAsync<Error extends Object, State> {
 
   TResult map<TResult>({
     required TResult Function() waiting,
-    required TResult Function(State? value) state,
+    required TResult Function(State value) state,
     required TResult Function(Error? error) error,
   }) {
     switch (_state.value.status) {
