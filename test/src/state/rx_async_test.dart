@@ -13,14 +13,14 @@ void main() {
 
     group('Nullable', () {
       test('should initialize value', () {
-        final asyncNumber = RxnAsync<Exception, int>(10);
+        final asyncNumber = RxnAsync<Exception, int>(state: 10);
         expect(asyncNumber.status, TripleStatus.done);
         expect(asyncNumber.value, 10);
         expect(asyncNumber.error, null);
       });
 
       test('should initialize null', () {
-        final asyncNumber = RxnAsync<Exception, int>(null);
+        final asyncNumber = RxnAsync<Exception, int>(state: null);
         expect(asyncNumber.status, TripleStatus.done);
         expect(asyncNumber.value, null);
         expect(asyncNumber.error, null);
