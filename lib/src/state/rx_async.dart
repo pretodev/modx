@@ -8,11 +8,8 @@ import 'triple_model.dart';
 class RxAsync<Error extends Object, State> {
   final Rx<TripleState<Error, State>> _state;
 
-  RxAsync(State state, {bool loading = true})
-      : _state = Rx(TripleState(
-          state,
-          status: loading ? TripleStatus.waiting : TripleStatus.done,
-        ));
+  RxAsync(State state)
+      : _state = Rx(TripleState(state, status: TripleStatus.done));
 
   Rx<TripleState<Error, State>> get listener => _state;
 
@@ -116,6 +113,7 @@ class RxAsync<Error extends Object, State> {
 }
 
 class RxnAsync<Error extends Object, State> extends RxAsync<Error, State?> {
-  RxnAsync({State? state, bool loading = true})
-      : super(state, loading: loading);
+  RxnAsync({State? state, bool loading = true}) : super(state) {
+    if (loading) _setStatus(TripleStatus.waiting);
+  }
 }
