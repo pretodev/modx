@@ -1,7 +1,7 @@
 import * as changeCase from "change-case";
 
-export function pageModuleTemplate(name: string) {
-  const pageName = `${name}Page`;
+export function widgetModuleTemplate(name: string) {
+  const widgetName = `${name}Widget`;
   const viewName = `${name}View`;
   const controllerName = `${name}Controller`;
   const storeName = `${name}Store`;
@@ -11,15 +11,15 @@ export function pageModuleTemplate(name: string) {
   const viewPath = changeCase.snakeCase(viewName);
 
   return `import 'package:modulex/modulex.dart';
+import 'package:flutter/material.dart';
 
 import '${storePath}.dart';
 import '${controllerPath}.dart';
 import '${viewPath}.dart';
 
-class ${pageName} extends PageModule {
-  @override
-  \/\/ TODO: define the route
-  final route = throw UnimplementedError();
+class ${widgetName} extends WidgetModule {
+
+  const ${widgetName}({Key? key}) : super(key: key);
 
   @override
   final view = const ${viewName}();

@@ -1,1 +1,1 @@
-export * from './new-page-module.command';
+export * from './new-module.command';

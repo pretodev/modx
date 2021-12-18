@@ -19,12 +19,21 @@
 			{
 				"command": "extensions.new-page-module",
 				"title": "Mobx: New Page module"
+			},
+      {
+				"command": "extensions.new-widget-module",
+				"title": "Mobx: New Widget module"
 			}
 		],
     "menus": {
       "explorer/context": [
         {
           "command": "extensions.new-page-module",
+          "group": "modxGroup@1",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extensions.new-widget-module",
           "group": "modxGroup@1",
           "when": "explorerResourceIsFolder"
         }
