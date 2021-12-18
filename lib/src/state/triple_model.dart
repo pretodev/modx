@@ -45,6 +45,8 @@ class TripleState<Error extends Object, State> {
 enum TripleStatus { done, error, waiting }
 
 extension TripleStatusExtension on TripleStatus {
+  bool get waiting => this == TripleStatus.waiting;
+
   TResult map<TResult>({
     required TResult Function() done,
     required TResult Function() error,
