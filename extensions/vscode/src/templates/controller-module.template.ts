@@ -6,7 +6,7 @@ export function controllerModuleTemplate(name: string) {
 
   const storePath = changeCase.snakeCase(storeName);
 
-  return `import 'package:modulex/modulex.dart';
+  return `import 'package:modx/modx.dart';
 
 import '${storePath}.dart';
 

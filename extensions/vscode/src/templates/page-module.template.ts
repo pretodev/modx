@@ -10,7 +10,7 @@ export function pageModuleTemplate(name: string) {
   const controllerPath = changeCase.snakeCase(controllerName);
   const viewPath = changeCase.snakeCase(viewName);
 
-  return `import 'package:modulex/modulex.dart';
+  return `import 'package:modx/modx.dart';
 
 import '${storePath}.dart';
 import '${controllerPath}.dart';

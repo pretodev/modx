@@ -10,7 +10,7 @@ export function widgetModuleTemplate(name: string) {
   const controllerPath = changeCase.snakeCase(controllerName);
   const viewPath = changeCase.snakeCase(viewName);
 
-  return `import 'package:modulex/modulex.dart';
+  return `import 'package:modx/modx.dart';
 import 'package:flutter/material.dart';
 
 import '${storePath}.dart';

@@ -11,7 +11,7 @@ export function statefulViewModuleTemplate(name:string) {
   const title = changeCase.sentenceCase(name);
 
   return `import 'package:flutter/material.dart';
-import 'package:modulex/modulex.dart';
+import 'package:modx/modx.dart';
 
 import '${storePath}.dart';
 import '${controllerPath}.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:modulex/src/state/rx_async.dart';
-import 'package:modulex/src/state/triple_model.dart';
+import 'package:modx/src/state/rx_async.dart';
+import 'package:modx/src/state/triple_model.dart';
 
 void main() {
   group('RxAsync', () {

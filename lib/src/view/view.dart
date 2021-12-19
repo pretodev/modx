@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:modulex/src/view/controller.dart';
+import 'controller.dart';
 
 abstract class StatelessView<ControllerInterface extends Controller>
     extends StatelessWidget {

@@ -1,7 +1,7 @@
-name: modulex
+name: modx
 description: A new Flutter package project.
 version: 0.0.1
-homepage: https://github.com/pretodev/modulex
+homepage: https://github.com/pretodev/modx
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

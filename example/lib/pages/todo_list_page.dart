@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:modulex/modulex.dart';
+import 'package:modx/modx.dart';
 
 class TodoListPage extends PageModule {
   @override

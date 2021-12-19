@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:modulex/modulex.dart';
+import 'package:modx/modx.dart';
 
 class AboutPage extends PageModule {
   @override

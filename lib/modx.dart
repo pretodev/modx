@@ -1,4 +1,4 @@
-library modulex;
+library modx;
 
 export 'src/modules/module.dart';
 export 'src/modules/page_module.dart';

@@ -1,7 +1,7 @@
 import 'package:example/pages/about_page.dart';
 import 'package:example/pages/todo_list_page.dart';
 import 'package:flutter/material.dart';
-import 'package:modulex/modulex.dart';
+import 'package:modx/modx.dart';
 
 void main() {
   runApp(const MyApp());
