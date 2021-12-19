@@ -25,8 +25,8 @@ class ${widgetName} extends WidgetModule {
   final view = const ${viewName}();
 
   @override
-  void dependencies(i) {
-    // Add others dependencies
+  void binding(i) {
+    // Add others binding
     bind(${storeName}());
     bind(${controllerName}());
   }
