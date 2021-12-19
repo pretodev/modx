@@ -3,6 +3,7 @@
 	"displayName": "modx",
 	"description": "modx utilities",
 	"version": "0.0.1",
+  "publisher": "pretodev",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -11,7 +12,7 @@
 	],
 	"activationEvents": [
 		"extensions.new-page-module",
-    "workspaceContains:**/pubspec.yaml"
+		"workspaceContains:**/pubspec.yaml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -20,33 +21,32 @@
 				"command": "extensions.new-page-module",
 				"title": "Mobx: New Page module"
 			},
-      {
+			{
 				"command": "extensions.new-widget-module",
 				"title": "Mobx: New Widget module"
 			}
 		],
-    "menus": {
-      "explorer/context": [
-        {
-          "command": "extensions.new-page-module",
-          "group": "modxGroup@1",
-          "when": "explorerResourceIsFolder"
-        },
-        {
-          "command": "extensions.new-widget-module",
-          "group": "modxGroup@1",
-          "when": "explorerResourceIsFolder"
-        }
-      ]
-    }
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extensions.new-page-module",
+					"group": "modxGroup@1",
+					"when": "explorerResourceIsFolder"
+				},
+				{
+					"command": "extensions.new-widget-module",
+					"group": "modxGroup@1",
+					"when": "explorerResourceIsFolder"
+				}
+			]
+		}
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
-		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"vscode:prepublish": "npm run package",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.4",
@@ -61,7 +61,10 @@
 		"eslint": "^8.1.0",
 		"glob": "^7.1.7",
 		"mocha": "^9.1.3",
-		"typescript": "^4.4.4"
+		"ts-loader": "^9.2.6",
+		"typescript": "^4.4.4",
+		"webpack": "^5.65.0",
+		"webpack-cli": "^4.9.1"
 	},
 	"dependencies": {
 		"change-case": "^4.1.2",
