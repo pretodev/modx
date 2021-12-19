@@ -10,7 +10,7 @@ class TodoListPage extends PageModule {
   Widget get view => const TodoListView();
 
   @override
-  void dependencies(i) {
+  void binding(i) {
     bind(TodoListStore());
     bind(TodoListController());
   }

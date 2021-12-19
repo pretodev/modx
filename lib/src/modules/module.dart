@@ -14,5 +14,5 @@ mixin Module<AppStore extends Object> on Object {
     Get.put<S>(dependency, tag: tag);
   }
 
-  void dependencies(Injector i) {}
+  void binding(Injector i) {}
 }

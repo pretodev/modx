@@ -10,7 +10,7 @@ abstract class WidgetModule<AppStore extends Object> extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return _BindContextProvider(
-      onInit: () => dependencies(Get.find),
+      onInit: () => binding(Get.find),
       child: view,
     );
   }

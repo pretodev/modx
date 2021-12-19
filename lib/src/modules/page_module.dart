@@ -11,7 +11,7 @@ abstract class PageModule<AppStore extends Object> with Module<AppStore> {
     return GetPage(
       name: route,
       page: () => view,
-      binding: _BindingsBuilder(dependencies),
+      binding: _BindingsBuilder(binding),
     );
   }
 }

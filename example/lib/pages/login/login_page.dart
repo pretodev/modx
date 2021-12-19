@@ -13,7 +13,7 @@ class LoginPage extends PageModule {
   final view = const LoginView();
 
   @override
-  void dependencies(i) {
+  void binding(i) {
     // Add others dependencies
     bind(LoginStore());
     bind(LoginController());
