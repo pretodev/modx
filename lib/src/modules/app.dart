@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'page_module.dart';
+import 'package:modx/modx.dart';
 
 extension MaterialAppExtension on MaterialApp {
   GetMaterialApp modularize({
+    required String initialRoute,
     required List<PageModule> pages,
     SmartManagement smartManagement = SmartManagement.full,
     ThemeMode themeMode = ThemeMode.system,
@@ -30,7 +30,7 @@ extension MaterialAppExtension on MaterialApp {
     PageModule? unknownRoute,
   }) {
     final getPages = pages.map((page) => page.page).toList();
-    return GetMaterialApp.router(
+    return GetMaterialApp(
       key: key,
       title: title,
       scaffoldMessengerKey: scaffoldMessengerKey,
@@ -77,16 +77,14 @@ extension MaterialAppExtension on MaterialApp {
       defaultGlobalState: defaultGlobalState,
       initialBinding: initialBinding,
       unknownRoute: unknownRoute?.page,
-      routerDelegate: routerDelegate,
-      backButtonDispatcher: backButtonDispatcher,
-      routeInformationParser: routeInformationParser,
-      routeInformationProvider: routeInformationProvider,
+      initialRoute: initialRoute,
     );
   }
 }
 
 extension CupertinoAppExtension on CupertinoApp {
   GetCupertinoApp modularize({
+    required String initialRoute,
     required List<PageModule> pages,
     SmartManagement smartManagement = SmartManagement.full,
     ThemeMode themeMode = ThemeMode.system,
@@ -113,7 +111,7 @@ extension CupertinoAppExtension on CupertinoApp {
     ThemeData? highContrastDarkTheme,
   }) {
     final getPages = pages.map((page) => page.page).toList();
-    return GetCupertinoApp.router(
+    return GetCupertinoApp(
       key: key,
       title: title,
       highContrastTheme: highContrastTheme,
@@ -146,6 +144,7 @@ extension CupertinoAppExtension on CupertinoApp {
       routingCallback: routingCallback,
       defaultTransition: defaultTransition,
       getPages: getPages,
+      initialRoute: initialRoute,
       opaqueRoute: opaqueRoute,
       enableLog: enableLog,
       logWriterCallback: logWriterCallback,
@@ -154,10 +153,33 @@ extension CupertinoAppExtension on CupertinoApp {
       defaultGlobalState: defaultGlobalState,
       initialBinding: initialBinding,
       unknownRoute: unknownRoute?.page,
-      routerDelegate: routerDelegate,
-      backButtonDispatcher: backButtonDispatcher,
-      routeInformationParser: routeInformationParser,
-      routeInformationProvider: routeInformationProvider,
     );
+  }
+}
+
+abstract class ModxApp<AppController extends Controller> extends WidgetModule {
+  const ModxApp({Key? key}) : super(key: key);
+
+  List<PageModule> get pages;
+
+  Widget get appWidget;
+
+  @override
+  Widget get view {
+    if (appWidget is MaterialApp) {
+      final app = appWidget as MaterialApp;
+      return app.modularize(
+        pages: pages,
+        initialRoute: app.initialRoute ?? initialRoute,
+      );
+    }
+    if (appWidget is CupertinoApp) {
+      final app = appWidget as CupertinoApp;
+      return app.modularize(
+        pages: pages,
+        initialRoute: app.initialRoute ?? initialRoute,
+      );
+    }
+    throw Exception('view must be MaterialApp or CupertinoApp');
   }
 }
