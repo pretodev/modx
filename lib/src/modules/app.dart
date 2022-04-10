@@ -6,7 +6,7 @@ import 'package:modx/modx.dart';
 extension MaterialAppExtension on MaterialApp {
   GetMaterialApp modularize({
     required String initialRoute,
-    required List<PageModule> pages,
+    required List<ModxPage> pages,
     SmartManagement smartManagement = SmartManagement.full,
     ThemeMode themeMode = ThemeMode.system,
     Locale? fallbackLocale,
@@ -27,7 +27,7 @@ extension MaterialAppExtension on MaterialApp {
     Bindings? initialBinding,
     Duration? transitionDuration,
     bool? defaultGlobalState,
-    PageModule? unknownRoute,
+    ModxPage? unknownRoute,
   }) {
     final getPages = pages.map((page) => page.page).toList();
     return GetMaterialApp(
@@ -85,7 +85,7 @@ extension MaterialAppExtension on MaterialApp {
 extension CupertinoAppExtension on CupertinoApp {
   GetCupertinoApp modularize({
     required String initialRoute,
-    required List<PageModule> pages,
+    required List<ModxPage> pages,
     SmartManagement smartManagement = SmartManagement.full,
     ThemeMode themeMode = ThemeMode.system,
     Locale? fallbackLocale,
@@ -106,7 +106,7 @@ extension CupertinoAppExtension on CupertinoApp {
     Bindings? initialBinding,
     Duration? transitionDuration,
     bool? defaultGlobalState,
-    PageModule? unknownRoute,
+    ModxPage? unknownRoute,
     ThemeData? highContrastTheme,
     ThemeData? highContrastDarkTheme,
   }) {
@@ -157,10 +157,11 @@ extension CupertinoAppExtension on CupertinoApp {
   }
 }
 
-abstract class ModxApp<AppController extends Controller> extends WidgetModule {
+abstract class ModxApp<AppController extends ModxController>
+    extends WidgetModule {
   const ModxApp({Key? key}) : super(key: key);
 
-  List<PageModule> get pages;
+  List<ModxPage> get pages;
 
   Widget get appWidget;
 
