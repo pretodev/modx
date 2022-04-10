@@ -4,7 +4,7 @@ import 'package:modx/modx.dart';
 import 'login_store.dart';
 import 'login_controller.dart';
 
-class LoginView extends StatefulView<LoginController, LoginStore> {
+class LoginView extends ModxView<LoginController, LoginStore> {
   const LoginView({Key? key}) : super(key: key);
 
   @override

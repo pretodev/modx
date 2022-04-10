@@ -4,7 +4,7 @@ import 'login_store.dart';
 import 'login_controller.dart';
 import 'login_view.dart';
 
-class LoginPage extends PageModule {
+class LoginPage extends ModxPage {
   @override
   // TODO: define the route
   final route = throw UnimplementedError();

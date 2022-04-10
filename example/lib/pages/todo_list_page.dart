@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:modx/modx.dart';
 
-class TodoListPage extends PageModule {
+class TodoListPage extends ModxPage {
   @override
   String get route => initialRoute;
 
@@ -24,13 +23,13 @@ class TodoListStore {
   ]);
 }
 
-class TodoListController extends Controller<TodoListStore> {
+class TodoListController extends ModxController<TodoListStore> {
   void showAbout() {
     view.toNamed("/about");
   }
 }
 
-class TodoListView extends StatefulView<TodoListController, TodoListStore> {
+class TodoListView extends ModxView<TodoListController, TodoListStore> {
   const TodoListView({Key? key}) : super(key: key);
 
   @override

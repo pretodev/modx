@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modx/modx.dart';
 
-class AboutPage extends PageModule {
+class AboutPage extends ModxPage {
   @override
   String get route => '/about';
 

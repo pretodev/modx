@@ -4,7 +4,7 @@ import 'register_store.dart';
 import 'register_controller.dart';
 import 'register_view.dart';
 
-class RegisterPage extends PageModule {
+class RegisterPage extends ModxPage {
   @override
   // TODO: define the route
   final route = throw UnimplementedError();
