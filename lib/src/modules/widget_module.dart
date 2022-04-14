@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 
 import 'module.dart';
 
-abstract class WidgetModule<AppStore extends Object> extends StatelessWidget
-    with Module<AppStore> {
-  const WidgetModule({Key? key}) : super(key: key);
+abstract class ModxWidget<AppStore extends Object> extends StatelessWidget
+    with Module {
+  const ModxWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

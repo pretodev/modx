@@ -9,6 +9,8 @@ export 'src/constants.dart';
 
 export 'src/view/view.dart';
 export 'src/view/controller.dart';
+export 'src/view/app_store_mixin.dart';
+export 'src/view/modal.dart';
 
 export 'src/state/rx_async.dart';
 export 'src/state/triple_model.dart';

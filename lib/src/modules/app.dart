@@ -158,7 +158,7 @@ extension CupertinoAppExtension on CupertinoApp {
 }
 
 abstract class ModxApp<AppController extends ModxController>
-    extends WidgetModule {
+    extends ModxWidget {
   const ModxApp({Key? key}) : super(key: key);
 
   List<ModxPage> get pages;

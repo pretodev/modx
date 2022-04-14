@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:meta/meta.dart';
 
 export 'package:get/get_navigation/src/extension_navigation.dart';
 

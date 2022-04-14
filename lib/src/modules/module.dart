@@ -3,9 +3,7 @@ import 'package:get/get.dart';
 
 typedef Injector<S> = T Function<T>({String? tag});
 
-mixin Module<AppStore extends Object> on Object {
-  AppStore get app => Get.find<AppStore>();
-
+mixin Module on Object {
   Widget get view;
 
   @protected

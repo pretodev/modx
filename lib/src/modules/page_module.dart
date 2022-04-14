@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 import 'module.dart';
 
-abstract class ModxPage<AppStore extends Object> with Module<AppStore> {
+abstract class ModxPage<AppStore extends Object> with Module {
   String get route;
 
   Map<String, dynamic> get args => Get.arguments ?? {};
