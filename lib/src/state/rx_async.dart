@@ -25,6 +25,24 @@ class RxAsync<Error extends Object, State> {
 
   bool get isLoading => _state.value.status == TripleStatus.waiting;
 
+  void waiting() {
+    _state.value = _state.value.copyWith(status: TripleStatus.waiting);
+  }
+
+  void done(State state) {
+    _state.value = _state.value.copyWith(
+      status: TripleStatus.done,
+      value: state,
+    );
+  }
+
+  void fail(Error error) {
+    _state.value = _state.value.copyWith(
+      status: TripleStatus.error,
+      error: error,
+    );
+  }
+
   Future<void> taskEither(
     TaskEither<Error, State> task, {
     void Function()? onStart,
